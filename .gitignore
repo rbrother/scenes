@@ -3,3 +3,5 @@
 *.jpg
 *.bak
 *.db
+*.ini
+*.INI
