@@ -23,12 +23,10 @@ global_settings {
 background { color <0.000,0.000,0.000> }
 
 camera {  //  Camera Camera
-  location  <   -400.000,     600.000,     900.000>
-  sky       <    0.00000,     0.00000,     1.00000> // Use right handed-system 
-  up        <        0.0,         0.0,         1.0> // Where Z is up
-  right     <    1.0,         0.0,         0.0> // Right Vector is adjusted to compensate for spherical (Moray) vs. planar (POV-Ray) aspect ratio
-  angle         45.00000    // Vertical      33.750
-  look_at   <      0.000,     350.000,       0.000>
+  location  <   0.000,     0.000,     -2000.000>
+  up        <        0.0,         1.0,         0.0> 
+  right     <    1.0,         0.0,         0.0>
+  look_at   <      0.000,     0.000,       0.000>
 }
 
 //
@@ -38,12 +36,16 @@ camera {  //  Camera Camera
 light_source {   // Lumiere
   <0.0, 0.0, 0.0>
   color rgb <1.000, 1.000, 1.000>
-  photons { }
-  translate  <-1000.0, 1000.0, 1000.0>
+  translate  <-1000.0, 1000.0, -1000.0>
+}
+
+light_source {   // Lumiere
+  <0.0, 0.0, 0.0>
+  color rgb <1.000, 1.000, 1.000>
+  translate  <1000.0, 1000.0, -1000.0>
 }
 
 
-object { Guitar }
+object { Guitar rotate<0,135,180>}
 
-object { Guitar    rotate<50,60,45> }     
-
+//object { Guitar    rotate<50,60,45> }     
