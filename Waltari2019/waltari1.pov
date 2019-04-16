@@ -2,6 +2,7 @@
 //  World definition file.
 
 #include "guitar.pov"
+#include "stones.inc"
 
 default {
   texture {
@@ -34,18 +35,29 @@ camera {  //  Camera Camera
 //
 
 light_source {   // Lumiere
-  <0.0, 0.0, 0.0>
-  color rgb <1.000, 1.000, 1.000>
-  translate  <-1000.0, 1000.0, -1000.0>
+  <-1000.0, 1000.0, 0.0>
+  color rgb <1.000, 0.8, 0.8>
 }
 
 light_source {   // Lumiere
-  <0.0, 0.0, 0.0>
-  color rgb <1.000, 1.000, 1.000>
-  translate  <1000.0, 1000.0, -1000.0>
+  <1000.0, -200, -1000.0>
+  color rgb <1.000, 1.000, 0.8>
 }
 
 
-object { Guitar rotate<0,135,180>}
+// object { Guitar rotate<0,135,180>}
 
 //object { Guitar    rotate<50,60,45> }     
+
+blob {
+    //sphere { <0,0,0>, 500, 100 }           
+    #for (i,0,1000,1)
+        sphere { <420,0,0>, 100, 30 
+          rotate<0,0,i*19>
+          rotate<0,i*13,0>
+          rotate<i*3,0,0>
+           }
+    #end
+    
+    texture { T_Stone8 scale<50,50,50> }
+}
