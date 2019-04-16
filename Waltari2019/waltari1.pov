@@ -50,14 +50,21 @@ light_source {   // Lumiere
 //object { Guitar    rotate<50,60,45> }     
 
 blob {
-    //sphere { <0,0,0>, 500, 100 }           
-    #for (i,0,1000,1)
-        sphere { <420,0,0>, 100, 30 
+    #for (i,0,200,1)
+        sphere { <380,0,0>, 200, 30 
           rotate<0,0,i*19>
           rotate<0,i*13,0>
           rotate<i*3,0,0>
            }
+    #end            
+    #for (i,0,600,1)
+        sphere { <460,0,0>, 100, 30 
+          rotate<0,i*19,0>
+          rotate<0,i*13,0>
+          rotate<i*5,0,0>
+           }
     #end
-    
-    texture { T_Stone8 scale<50,50,50> }
+    texture { T_Stone8 
+       normal { bumps 0.3 scale 0.1 }
+       scale<50,50,50> }
 }
