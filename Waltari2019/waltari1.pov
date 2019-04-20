@@ -29,7 +29,7 @@ camera {  //  Camera Camera
   location  <   0.000,     600.000,     -700.000>
   up        <        0.0,         1.0,         0.0> 
   right     <    1.0,         0.0,         0.0>
-  look_at   <      0.000,     0.000,       0.000>
+  look_at   <      0.000,     100.000,       0.000>
 }
 
 //
@@ -113,8 +113,8 @@ light_source {   // Lumiere
     
     
 union {
-    object { Ground translate<0,-200,1000>}
-    //object { Guitars }
-    //object { Drums }
-    //object { HiHats }
+    object { Ground translate<0,100,1000>}
+    object { Guitars }
+    object { Drums }
+    object { HiHats }
 }
