@@ -15,9 +15,6 @@
     material {
       Noir_Plastique
     }
-    photons {
-      collect off
-    }
     // All transformations fixed
     scale <45.5, 22.5, 3.0>
     translate  <0.0, 513.5, -7.0>
@@ -27,26 +24,16 @@
     material {
       Noir
     }
-    photons {
-      collect off
-    }
     // All transformations fixed
     scale <34.5, 18.5, 9.0>
     translate  <0.0, 513.5, -5.0>
   }
-  photons {
-    collect off
-  }
-  // All transformations fixed
 }
 #declare MicroChevalet = union {
   superellipsoid { // CacheMicro2
     <0.1, 0.1>
     material {
       Noir_Plastique
-    }
-    photons {
-      collect off
     }
     // All transformations fixed
     scale <45.5, 22.5, 3.0>
@@ -57,138 +44,72 @@
     material {
       Noir
     }
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <34.5, 18.5, 9.0>
     translate  <0.0, 598.5, -5.0>
   }
-  photons {
-    collect off
-  }
-  // All transformations fixed
 }
 #declare CSG004 = union {
   cylinder { // Cylndr008
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <3.5, 3.5, 2.0>
     translate  8.0*z
   }
   cone { // Cone006
     <0,0,0>, 1.5, <0,0,1>, 3.5
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <1.0, 1.0, 2.0>
     translate  6.0*z
   }
   cone { // Cone007
     <0,0,0>, 3.5, <0,0,1>, 1.5
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <1.0, 1.0, 2.0>
     translate  4.0*z
   }
   cylinder { // Cylndr009
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <3.5, 3.5, 4.0>
   }
-  photons {
-    collect off
-  }
-  // All transformations fixed
 }
 #declare VisVibrato1 = difference {
   object { CSG004 }
   box { // Cube017
     <-1, -1, -1>, <1, 1, 1>
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <4.0, 1.0, 1.0>
     translate  10.0*z
   }
   material {
     Chrome
   }
-  photons {
-    collect off
-  }
-  // All transformations fixed
   translate  <37.0, 636.0, -7.5>
 }
 #declare CSG005 = union {
   cylinder { // Cylndr010
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <3.5, 3.5, 2.0>
     translate  8.0*z
   }
   cone { // Cone008
     <0,0,0>, 1.5, <0,0,1>, 3.5
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <1.0, 1.0, 2.0>
     translate  6.0*z
   }
   cone { // Cone009
     <0,0,0>, 3.5, <0,0,1>, 1.5
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <1.0, 1.0, 2.0>
     translate  4.0*z
   }
   cylinder { // Cylndr011
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <3.5, 3.5, 4.0>
   }
-  photons {
-    collect off
-  }
-  // All transformations fixed
 }
 #declare VisVibrato2 = difference {
   object { CSG005 }
   box { // Cube018
     <-1, -1, -1>, <1, 1, 1>
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <4.0, 1.0, 1.0>
     translate  10.0*z
   }
-  material {
-    Chrome
-  }
-  photons {
-    collect off
-  }
-  // All transformations fixed
+  material { Chrome }
   translate  <-37.0, 636.0, -7.5>
 }
 // Include contains 'Body'
