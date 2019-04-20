@@ -24,7 +24,7 @@ global_settings {
 background { color <0.000,0.000,0.000> }
 
 camera {  //  Camera Camera
-  location  <   0.000,     0.000,     -2000.000>
+  location  <   0.000,     0.000,     -1200.000>
   up        <        0.0,         1.0,         0.0> 
   right     <    1.0,         0.0,         0.0>
   look_at   <      0.000,     0.000,       0.000>
@@ -53,10 +53,11 @@ light_source {   // Lumiere
 }
 
 light_source {   // Lumiere
-  <-1000.0, -200, -2000.0>
+  <-1000.0, -200, 0.0>
   color rgb <1.000, 1.000, 0.8>
 }
-
+              
+/*              
 #for (i,0,360,30)
 object { Guitar
     scale 0.3      
@@ -67,29 +68,24 @@ object { Guitar
     rotate<0,0,i>
     }            
 #end
-
-//object { Guitar    rotate<50,60,45> }     
+*/
 
 blob {
-    #for (i,0,200,1)
-        sphere { <380,0,0>, 200, 30 
+    #for (i,0,400,1)
+        sphere { <sin(i*0.1)*1000,0,0>, 140, 30 
           rotate<0,0,i*19>
-          rotate<0,i*13,0>
-          rotate<i*3,0,0>
+          //rotate<0,i*13,0>
+          //rotate<i*3,0,0>
            }
     #end            
-    #for (i,0,600,1)
-        sphere { <460,0,0>, 100, 30 
-          rotate<0,i*19,0>
-          rotate<0,i*13,0>
-          rotate<i*5,0,0>
-           }
-    #end
       
-      scale 2.5
+      scale 1
 
     texture { T_Stone8 
        normal { bumps 0.3 scale 0.1 }
-       scale<50,50,50> }
-      finish { reflection 0.2 ambient 0.1 diffuse 0.8 }  
+       scale 20 }
+      finish { reflection 0 ambient 0.1 diffuse 0.8 }  
+      
+      rotate <50,0,0> 
+      translate <0,300,0>
 }
