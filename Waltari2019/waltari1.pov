@@ -24,7 +24,7 @@ global_settings {
 background { color <0.000,0.000,0.000> }
 
 camera {  //  Camera Camera
-  location  <   0.000,     0.000,     -1200.000>
+  location  <   0.000,     700.000,     -700.000>
   up        <        0.0,         1.0,         0.0> 
   right     <    1.0,         0.0,         0.0>
   look_at   <      0.000,     0.000,       0.000>
@@ -53,39 +53,46 @@ light_source {   // Lumiere
 }
 
 light_source {   // Lumiere
-  <-1000.0, -200, 0.0>
+  <-1000.0, 1000, 0.0>
   color rgb <1.000, 1.000, 0.8>
 }
               
-/*              
-#for (i,0,360,30)
-object { Guitar
-    scale 0.3      
-    translate<0,100,0>
-    rotate<0,135,0>
-    rotate<20,0,0>
-    translate<0,0,-1500>
-    rotate<0,0,i>
-    }            
-#end
-*/
+#declare Guitars = union {             
+    #for (i,0,360,30)
+    object { Guitar
+        scale 0.5      
+        rotate<0,135,0>
+        //translate<0,100,0>
+        
+        //rotate<20,0,0>
+        //translate<0,0,-200>
+        //rotate<0,0,i>
+        }            
+    #end
+}       
 
-blob {
-    #for (i,0,400,1)
-        sphere { <sin(i*0.1)*1000,0,0>, 140, 30 
-          rotate<0,0,i*19>
-          //rotate<0,i*13,0>
-          //rotate<i*3,0,0>
-           }
-    #end            
-      
-      scale 1
+#declare Guitars = object { Guitar
+        scale 0.6      
+        rotate<0,135,0> 
+        rotate<0,0,20>
+        translate<100,0,-300>
+}      
 
-    texture { T_Stone8 
-       normal { bumps 0.3 scale 0.1 }
-       scale 20 }
-      finish { reflection 0 ambient 0.1 diffuse 0.8 }  
-      
-      rotate <50,0,0> 
-      translate <0,300,0>
+#declare Ground = 
+    blob {
+        #for (i,0,400,1)
+            sphere { <sin(i*0.1)*1000,0,0>, 140, 30 
+              rotate<0,i*19,0>
+            }
+        #end            
+        texture { T_Stone2 
+           normal { bumps 0.3 scale 0.1 }
+           scale 20 }
+        finish { reflection 0.2 ambient 0.1 diffuse 0.8 }  
+        
+    }
+    
+union {
+    object { Ground translate<0,0,500>}
+    object { Guitars translate <0,100,0> }
 }
