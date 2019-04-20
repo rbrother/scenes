@@ -3,6 +3,7 @@
 //
 
 #include "elecguit.inc"
+#include "stones.inc"
 
 
 //
@@ -117,195 +118,117 @@
 
 #declare Body = object {
   Body_Raw
-  photons {
-    collect off
-  }
-  // All transformations fixed
-}
+}         
+                
+                
 #declare Caisse = difference {
   object { Body }
   superellipsoid { // SuperQ001
     <0.1, 0.1>
-    material {
-      Noir
-    }
-    photons {
-      collect off
-    }
-    // All transformations fixed
+    material {  Noir }
     scale <50.0, 16.0, 3.0>
     translate  <0.0, 660.0, 38.0>
   }
   superellipsoid { // SuperQ002
     <0.1, 0.1>
-    material {
-      Noir
-    }
-    photons {
-      collect off
-    }
-    // All transformations fixed
+    material {       Noir }
     scale <36.0, 20.0, 3.0>
     translate  <0.0, 694.0, 38.0>
   }
   cylinder { // Cylndr037
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <5.0, 5.0, 10.0>
     translate  <-85.0, 505.0, 31.0>
   }
   material {
-    DeepBlue
-  }
-  photons {
-    collect off
+    texture { T_Stone8
+        scale 20
+     }
   }
   // All transformations fixed
   translate  -47.0*z
-}
+}            
+
+
+
 #declare CSG001 = union {
   box { // Cube001
     <-1, -1, -1>, <1, 1, 1>
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <3.0, 1.0, 0.5>
     translate  <-1.0, 0.0, 6.5>
   }
   box { // Cube002
     <-1, -1, -1>, <1, 1, 1>
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <3.0, 1.0, 0.5>
     translate  <-7.5, 0.0, 6.5>
   }
   box { // Cube003
     <-1, -1, -1>, <1, 1, 1>
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <3.0, 1.0, 0.5>
     translate  <-14.0, 0.0, 6.5>
   }
   box { // Cube004
     <-1, -1, -1>, <1, 1, 1>
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <1.5, 1.0, 0.5>
     translate  <-19.0, 0.0, 6.5>
   }
   box { // Cube005
     <-1, -1, -1>, <1, 1, 1>
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <3.0, 1.0, 0.5>
     translate  <6.0, 0.0, 6.5>
   }
   box { // Cube006
     <-1, -1, -1>, <1, 1, 1>
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <3.0, 1.0, 0.5>
     translate  <13.0, 0.0, 6.5>
   }
   box { // Cube007
     <-1, -1, -1>, <1, 1, 1>
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <1.5, 1.0, 0.5>
     translate  <19.0, 0.0, 6.5>
   }
-  photons {
-    collect off
-  }
-  // All transformations fixed
   translate  -1.0*y
 }
+
 #declare CSG002 = union {
   box { // Cube008
     <-1, -1, -1>, <1, 1, 1>
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <3.0, 1.0, 0.5>
     translate  <-1.0, 0.0, 6.5>
   }
   box { // Cube009
     <-1, -1, -1>, <1, 1, 1>
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <3.0, 1.0, 0.5>
     translate  <-7.5, 0.0, 6.5>
   }
   box { // Cube010
     <-1, -1, -1>, <1, 1, 1>
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <3.0, 1.0, 0.5>
     translate  <-14.0, 0.0, 6.5>
   }
   box { // Cube011
     <-1, -1, -1>, <1, 1, 1>
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <1.5, 1.0, 0.5>
     translate  <-19.0, 0.0, 6.5>
   }
   box { // Cube012
     <-1, -1, -1>, <1, 1, 1>
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <3.0, 1.0, 0.5>
     translate  <6.0, 0.0, 6.5>
   }
   box { // Cube013
     <-1, -1, -1>, <1, 1, 1>
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <3.0, 1.0, 0.5>
     translate  <13.0, 0.0, 6.5>
   }
   box { // Cube014
     <-1, -1, -1>, <1, 1, 1>
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <1.5, 1.0, 0.5>
     translate  <19.0, 0.0, 6.5>
   }
-  photons {
-    collect off
-  }
-  // All transformations fixed
   translate  <0.0, -13.0, -2.0>
 }
+
 #declare TransSweep001 = prism {
   linear_sweep
   linear_spline
@@ -319,10 +242,6 @@
   <0.0, -14.0>,
   <0.0, 0.0>
   rotate -x*90
-  photons {
-    collect off
-  }
-  // All transformations fixed
   rotate -90.0*y
   translate  20.5*x
 }
@@ -331,10 +250,6 @@
 
 #declare TransSweep021 = object {
   TransSweep021_Raw
-  photons {
-    collect off
-  }
-  // All transformations fixed
   rotate 101.0*x
   translate  <-13.0, -2.0, 6.0>
 }
@@ -343,10 +258,6 @@
 
 #declare TransSweep022 = object {
   TransSweep022_Raw
-  photons {
-    collect off
-  }
-  // All transformations fixed
   rotate 101.0*x
   translate  <0.0, -2.0, 6.0>
 }
@@ -355,94 +266,54 @@
 
 #declare TransSweep023 = object {
   TransSweep023_Raw
-  photons {
-    collect off
-  }
-  // All transformations fixed
   rotate 101.0*x
   translate  <14.5, -2.0, 6.0>
 }
 #declare VisBloqueCorde1 = union {
   cylinder { // Cylndr095
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <3.5, 3.5, 4.0>
     translate  8.0*z
   }
   cylinder { // Cylndr006
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <1.5, 1.5, 8.0>
   }
   material {
     Noir_Metal
   }
-  photons {
-    collect off
-  }
-  // All transformations fixed
   rotate 11.0*x
   translate  <14.5, -6.5, 2.5>
 }
 #declare VisBloqueCorde2 = union {
   cylinder { // Cylndr123
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <3.5, 3.5, 4.0>
     translate  8.0*z
   }
   cylinder { // Cylndr005
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <1.5, 1.5, 8.0>
   }
   material {
     Noir_Metal
   }
-  photons {
-    collect off
-  }
-  // All transformations fixed
   rotate 11.0*x
   translate  <0.0, -6.5, 2.5>
 }
 #declare VisBloqueCorde3 = union {
   cylinder { // Cylndr124
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <3.5, 3.5, 4.0>
     translate  8.0*z
   }
   cylinder { // Cylndr007
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <1.5, 1.5, 8.0>
   }
   material {
     Noir_Metal
   }
-  photons {
-    collect off
-  }
-  // All transformations fixed
   rotate 11.0*x
   translate  <-13.0, -6.5, 2.5>
 }
@@ -456,366 +327,217 @@
   object { VisBloqueCorde1 }
   object { VisBloqueCorde2 }
   object { VisBloqueCorde3 }
-  photons {
-    collect off
-  }
-  // All transformations fixed
 }
 #declare Sillet = difference {
   object { CSG003 }
   cone { // Cone001
     <0,0,0>, 1.5, <0,0,1>, 2.5
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <1.0, 1.0, 1.1>
     translate  <7.0, -7.0, 3.5>
   }
   cone { // Cone002
     <0,0,0>, 1.5, <0,0,1>, 2.5
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <1.0, 1.0, 1.1>
     translate  <-7.0, -7.0, 3.5>
   }
   cylinder { // Cylndr001
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <1.5, 1.5, 7.0>
     translate  <7.0, -7.0, -1.0>
   }
   cylinder { // Cylndr002
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <2.5, 2.5, 1.0>
     translate  <7.0, -7.0, 4.5>
   }
   cylinder { // Cylndr003
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <2.5, 2.5, 1.0>
     translate  <-7.0, -7.0, 4.5>
   }
   cylinder { // Cylndr004
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <1.5, 1.5, 7.0>
     translate  <-7.0, -7.0, -1.0>
   }
   material {
     Chrome
   }
-  photons {
-    collect off
-  }
-  // All transformations fixed
   translate  1.5*z
 }
+
 #declare Manche = intersection {
   box { // Cube015
     <-1, -1, -1>, <1, 1, 1>
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <30.0, 247.0, 15.0>
     translate  <0.0, 233.0, -15.0>
   }
   cone { // Cone003
     <0,0,0>, 20.5, <0,0,1>, 27.5
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <1.0, 0.7, 494.0>
     rotate -90.0*x
     translate  -14.0*y
   }
   material {
-    Maple
+    texture { T_Stone8 scale 10 }
   }
-  photons {
-    collect off
-  }
-  // All transformations fixed
 }
+
 #declare Touche = intersection {
   box { // Cube016
     <-1, -1, -1>, <1, 1, 1>
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <30.0, 247.0, 2.5>
     translate  <0.0, 233.0, 2.5>
   }
   cone { // Cone004
     <0,0,0>, 20.5, <0,0,1>, 27.5
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <1.0, 1.0, 494.0>
     rotate -90.0*x
     translate  -14.0*y
   }
   material {
     Rosewood
-  }
-  photons {
-    collect off
-  }
-  // All transformations fixed
+  }     
 }
+
 #declare Frette = union {
   cylinder { // Frette1
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <0.5, 1.5, 60.0>
     rotate -90.0*y
     translate  <30.0, 36.0, 5.0>
   }
   cylinder { // Frette2
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <0.5, 1.5, 60.0>
     rotate -90.0*y
     translate  <30.0, 70.0, 5.0>
   }
   cylinder { // Frette3
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <0.5, 1.5, 60.0>
     rotate -90.0*y
     translate  <30.0, 102.5, 5.0>
   }
   cylinder { // Frette4
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <0.5, 1.5, 60.0>
     rotate -90.0*y
     translate  <30.0, 133.5, 5.0>
   }
   cylinder { // Frette5
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <0.5, 1.5, 60.0>
     rotate -90.0*y
     translate  <30.0, 162.0, 5.0>
   }
   cylinder { // Frette6
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <0.5, 1.5, 60.0>
     rotate -90.0*y
     translate  <30.0, 189.5, 5.0>
   }
   cylinder { // Frette7
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <0.5, 1.5, 60.0>
     rotate -90.0*y
     translate  <30.0, 215.0, 5.0>
   }
   cylinder { // Frette8
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <0.5, 1.5, 60.0>
     rotate -90.0*y
     translate  <30.0, 239.5, 5.0>
   }
   cylinder { // Frette9
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <0.5, 1.5, 60.0>
     rotate -90.0*y
     translate  <30.0, 262.5, 5.0>
   }
   cylinder { // Frette10
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <0.5, 1.5, 60.0>
     rotate -90.0*y
     translate  <30.0, 284.0, 5.0>
   }
   cylinder { // Frette11
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <0.5, 1.5, 60.0>
     rotate -90.0*y
     translate  <30.0, 304.5, 5.0>
   }
   cylinder { // Frette12
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <0.5, 1.5, 60.0>
     rotate -90.0*y
     translate  <30.0, 324.0, 5.0>
   }
   cylinder { // Frette13
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <0.5, 1.5, 60.0>
     rotate -90.0*y
     translate  <30.0, 342.0, 5.0>
   }
   cylinder { // Frette14
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <0.5, 1.5, 60.0>
     rotate -90.0*y
     translate  <30.0, 359.5, 5.0>
   }
   cylinder { // Frette15
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <0.5, 1.5, 60.0>
     rotate -90.0*y
     translate  <30.0, 375.5, 5.0>
   }
   cylinder { // Frette16
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <0.5, 1.5, 60.0>
     rotate -90.0*y
     translate  <30.0, 390.0, 5.0>
   }
   cylinder { // Frette17
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <0.5, 1.5, 60.0>
     rotate -90.0*y
     translate  <30.0, 405.0, 5.0>
   }
   cylinder { // Frette18
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <0.5, 1.5, 60.0>
     rotate -90.0*y
     translate  <30.0, 419.0, 5.0>
   }
   cylinder { // Frette19
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <0.5, 1.5, 60.0>
     rotate -90.0*y
     translate  <30.0, 432.0, 5.0>
   }
   cylinder { // Frette20
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <0.5, 1.5, 60.0>
     rotate -90.0*y
     translate  <30.0, 444.0, 5.0>
   }
   cylinder { // Frette21
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <0.5, 1.5, 60.0>
     rotate -90.0*y
     translate  <30.0, 455.5, 5.0>
   }
   cylinder { // Frette22
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <0.5, 1.5, 60.0>
     rotate -90.0*y
     translate  <30.0, 466.5, 5.0>
   }
-  photons {
-    collect off
-  }
-  // All transformations fixed
 }
 #declare Frettes = intersection {
   object { Frette }
   cone { // Cone005
     <0,0,0>, 20.5, <0,0,1>, 27.5
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <1.0, 1.0, 494.0>
     rotate -90.0*x
     translate  -14.0*y
@@ -823,99 +545,55 @@
   material {
     Chrome
   }
-  photons {
-    collect off
-  }
-  // All transformations fixed
 }
 #declare Dots = union {
   cylinder { // DotCase3
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <3.0, 3.0, 1.0>
     translate  <0.0, 86.0, 4.0>
   }
   cylinder { // DotCase5
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <3.0, 3.0, 1.0>
     translate  <0.0, 147.5, 4.0>
   }
   cylinder { // DotCase7
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <3.0, 3.0, 1.0>
     translate  <0.0, 202.5, 4.0>
   }
   cylinder { // DotCase9
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <3.0, 3.0, 1.0>
     translate  <0.0, 251.0, 4.0>
   }
   cylinder { // DotCase12CaD
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <3.0, 3.0, 1.0>
     translate  <17.5, 314.0, 4.0>
   }
   cylinder { // DotCase12CbD
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <3.0, 3.0, 1.0>
     translate  <-17.5, 314.0, 4.0>
   }
   cylinder { // DotCase15
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <3.0, 3.0, 1.0>
     translate  <0.0, 367.5, 4.0>
   }
   cylinder { // DotCase17
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <3.0, 3.0, 1.0>
     translate  <0.0, 398.0, 4.0>
   }
   cylinder { // DotCase19
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <3.0, 3.0, 1.0>
     translate  <0.0, 425.5, 4.0>
   }
   cylinder { // DotCase21
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <3.0, 3.0, 1.0>
     translate  <0.0, 450.0, 4.0>
   }
@@ -962,40 +640,24 @@
   }
   cylinder { // RE_Cd024eDRe0d3048mmD
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <0.3048, 0.30486, 655.0>
     rotate <-90.0, 0.0, -0.25>
     translate  <2.5, 0.0, 6.3048>
   }
   cylinder { // SOL_Cd016eDRe0d2032mmD
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <0.2032, 0.2032, 656.0>
     rotate <-90.0, 0.0, 0.1>
     translate  <-4.25, 0.0, 6.2032>
   }
   cylinder { // SI_Cd011eDRe0d1397mmD
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <0.1397, 0.1397, 655.0>
     rotate <-90.0, 0.0, 0.5>
     translate  <-10.75, 0.0, 6.1397>
   }
   cylinder { // MI_Cd009eDRe0d1143mmD
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <0.1143, 0.1143, 654.0>
     rotate <-90.0, -0.000004, 0.9>
     translate  <-17.25, 0.0, 6.1143>
@@ -1003,268 +665,152 @@
   material {
     Chrome
   }
-  photons {
-    collect off
-  }
-  // All transformations fixed
   translate  1.5*z
 }
 #declare Boutons = union {
   superellipsoid { // BoutonVolume
     <1.0, 0.25>
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale 9.0
   }
   superellipsoid { // BoutonTonaliteAigue
     <1.0, 0.25>
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale 9.0
     translate  40.0*y
   }
   superellipsoid { // BoutonTonaliteGrave
     <1.0, 0.25>
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale 9.0
     translate  80.0*y
   }
   material {
     Chrome
   }
-  photons {
-    collect off
-  }
-  // All transformations fixed
   rotate 10.0*z
   translate  <-80.0, 600.0, -2.0>
 }
 #declare VisTune1 = union {
   cylinder { // Cylndr112
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <4.5, 4.5, 3.0>
     translate  9.5*z
   }
   cylinder { // Cylndr111
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <2.5, 2.5, 10.0>
     translate  -0.5*z
   }
   cone { // Cone021
     <0,0,0>, 1.0, <0,0,1>, 2.5
-    photons {
-      collect off
-    }
-    // All transformations fixed
     translate  -1.5*z
   }
   material {
     Noir_Metal
   }
-  photons {
-    collect off
-  }
-  // All transformations fixed
   rotate -16.0*x
   translate  <-27.5, 55.5, 7.0>
 }
 #declare VisTune2 = union {
   cylinder { // Cylndr113
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <4.5, 4.5, 3.0>
     translate  9.5*z
   }
   cylinder { // Cylndr114
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <2.5, 2.5, 10.0>
     translate  -0.5*z
   }
   cone { // Cone022
     <0,0,0>, 1.0, <0,0,1>, 2.5
-    photons {
-      collect off
-    }
-    // All transformations fixed
     translate  -1.5*z
   }
   material {
     Noir_Metal
   }
-  photons {
-    collect off
-  }
-  // All transformations fixed
   rotate -16.0*x
   translate  <-16.5, 55.5, 7.0>
 }
 #declare VisTune3 = union {
   cylinder { // Cylndr115
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <4.5, 4.5, 3.0>
     translate  9.5*z
   }
   cylinder { // Cylndr116
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <2.5, 2.5, 10.0>
     translate  -0.5*z
   }
   cone { // Cone023
     <0,0,0>, 1.0, <0,0,1>, 2.5
-    photons {
-      collect off
-    }
-    // All transformations fixed
     translate  -1.5*z
   }
   material {
     Noir_Metal
   }
-  photons {
-    collect off
-  }
-  // All transformations fixed
   rotate -16.0*x
   translate  <-5.5, 55.5, 7.0>
 }
 #declare VisTune4 = union {
   cylinder { // Cylndr117
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <4.5, 4.5, 3.0>
     translate  9.5*z
   }
   cylinder { // Cylndr118
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <2.5, 2.5, 10.0>
     translate  -0.5*z
   }
   cone { // Cone024
     <0,0,0>, 1.0, <0,0,1>, 2.5
-    photons {
-      collect off
-    }
-    // All transformations fixed
     translate  -1.5*z
   }
   material {
     Noir_Metal
   }
-  photons {
-    collect off
-  }
-  // All transformations fixed
   rotate -16.0*x
   translate  <5.5, 55.5, 7.0>
 }
 #declare VisTune5 = union {
   cylinder { // Cylndr119
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <4.5, 4.5, 3.0>
     translate  9.5*z
   }
   cylinder { // Cylndr120
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <2.5, 2.5, 10.0>
     translate  -0.5*z
   }
   cone { // Cone025
     <0,0,0>, 1.0, <0,0,1>, 2.5
-    photons {
-      collect off
-    }
-    // All transformations fixed
     translate  -1.5*z
   }
   material {
     Noir_Metal
   }
-  photons {
-    collect off
-  }
-  // All transformations fixed
   rotate -16.0*x
   translate  <16.5, 55.5, 7.0>
 }
 #declare VisTune6 = union {
   cylinder { // Cylndr121
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <4.5, 4.5, 3.0>
     translate  9.5*z
   }
   cylinder { // Cylndr122
     <0,0,1>, <0,0,0>, 1 
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <2.5, 2.5, 10.0>
     translate  -0.5*z
   }
   cone { // Cone026
     <0,0,0>, 1.0, <0,0,1>, 2.5
-    photons {
-      collect off
-    }
-    // All transformations fixed
     translate  -1.5*z
   }
   material {
     Noir_Metal
   }
-  photons {
-    collect off
-  }
-  // All transformations fixed
   rotate -16.0*x
   translate  <27.5, 55.5, 7.0>
 }
@@ -4557,24 +4103,19 @@
   // All transformations fixed
   rotate 15.0*x
 }
+
 #declare Tete = difference {
   object { CSG013 }
   torus { // Torus008
     55.250037, 34.749963  rotate -x*90
-    photons {
-      collect off
-    }
-    // All transformations fixed
     scale <1.0, 0.7, 1.0>
     rotate 90.0*x
   }
   material {
-    Maple
+    texture { T_Stone8
+        scale 20
+     }
   }
-  photons {
-    collect off
-  }
-  // All transformations fixed
   translate  <0.0, -14.0, 1.5>
 }
 
@@ -4590,9 +4131,6 @@
   object { VibratoFloydRose }
   object { SelecteurMicro }
   object { Tete }
-  photons {
-    collect off
-  }
-  // All transformations fixed
+  material { Noir_Plastique }
 }
 
