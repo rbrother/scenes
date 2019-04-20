@@ -25,7 +25,7 @@ global_settings {
 background { color <0.000,0.000,0.000> }
 
 camera {  //  Camera Camera
-  location  <   0.000,     700.000,     -700.000>
+  location  <   0.000,     600.000,     -700.000>
   up        <        0.0,         1.0,         0.0> 
   right     <    1.0,         0.0,         0.0>
   look_at   <      0.000,     0.000,       0.000>
@@ -75,6 +75,21 @@ light_source {   // Lumiere
     #end
 }                      
 
+
+#declare HiHats = union {             
+    #for (i,0,359,60)
+        object { HiHat 
+            rotate<-70,0,0>
+            rotate<0,180,0>  
+            scale 10 
+            translate<450,0,0>                       
+            rotate<0,i+30,0>
+            translate <0,-70,0>
+            }            
+    #end
+}                      
+
+
 #declare Ground = 
     blob {
         #for (i,0,200,1)
@@ -95,4 +110,5 @@ union {
     object { Ground translate<0,-200,500>}
     object { Guitars }
     object { Drums }
+    object { HiHats }
 }
