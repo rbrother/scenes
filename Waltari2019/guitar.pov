@@ -6,6 +6,12 @@
 #include "stones.inc"
 
 
+#declare GuitarMaterial = 
+material {
+    texture { T_Stone3
+        scale 20
+     }
+  }
 //
 // ********  OBJECTS  *******
 //
@@ -139,13 +145,8 @@
     <0,0,1>, <0,0,0>, 1 
     scale <5.0, 5.0, 10.0>
     translate  <-85.0, 505.0, 31.0>
-  }
-  material {
-    texture { T_Stone8
-        scale 20
-     }
-  }
-  // All transformations fixed
+  } 
+  material { GuitarMaterial }
   translate  -47.0*z
 }            
 
@@ -378,9 +379,7 @@
     rotate -90.0*x
     translate  -14.0*y
   }
-  material {
-    texture { T_Stone8 scale 10 }
-  }
+  material { GuitarMaterial }
 }
 
 #declare Touche = intersection {
@@ -4111,11 +4110,7 @@
     scale <1.0, 0.7, 1.0>
     rotate 90.0*x
   }
-  material {
-    texture { T_Stone8
-        scale 20
-     }
-  }
+  material { GuitarMaterial }
   translate  <0.0, -14.0, 1.5>
 }
 

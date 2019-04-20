@@ -1,8 +1,9 @@
 //  Persistence of Vision Raytracer V3.5
 //  World definition file.
 
-#include "guitar.pov"
 #include "stones.inc"
+#include "guitar.pov"
+#include "drumkit.pov"
 
 default {
   texture {
@@ -34,63 +35,64 @@ camera {  //  Camera Camera
 // *******  L I G H T S *******
 //              
 
-sky_sphere {               
-  pigment {
-    bumps 
-    
-    color_map {
-      [ 0.0 color rgb<0,0,0> ]      
-      [ 0.8 color rgb<0,0,0> ]
-      [ 0.9 color rgb<0.5,0.5,1> ]
-      [ 1.0 color rgb<1,1,1> ]
-    }
-  }
-}
+
+light_source { 
+  <-3000.0, 3000.0, -3000.0>
+  color rgb <1,1,0.5>
+}        
 
 light_source {   // Lumiere
-  <1000.0, 2000.0, -2000.0>
-  color rgb <0.8, 0.8, 0.8>
-}
+  <0.0, 5000, 0.0>
+  color rgb <0.7,0.7,1>
+}   
 
-light_source {   // Lumiere
-  <-1000.0, 2000, 0.0>
-  color rgb <1.000, 1.000, 0.8>
-}
-              
 #declare Guitars = union {             
-    #for (i,0,359,30)
-    object { Guitar    
-        scale 0.6  
-        translate<0,-200,0>    
-        
-        rotate<0,135,0>
-        
-        rotate<0,0,i*2>       
-                       
-        translate<400,0,0>                       
-                       
-        rotate<0,i,0>
-           
-        translate<0,120,0>   
-        }            
+    #for (i,15,359,45)
+        object { Guitar    
+            scale 0.6  
+            translate<0,-200,0>    
+            rotate<0,135,0>
+            rotate<0,0,i*2>       
+            translate<400,0,0>                       
+            rotate<0,i,0>
+            translate<0,120,0>   
+            }            
     #end
-}       
+}                      
+
+
+#declare Drums = union {             
+    #for (i,0,359,60)
+        object { BassDrum 
+            rotate<-90,0,0>
+            rotate<0,180,0>  
+            scale 8 
+            rotate<0,i*0.7,i*2>       
+            translate<250,0,0>                       
+            rotate<0,i+20,0>
+            translate <0,70,0>
+            }            
+    #end
+}                      
 
 #declare Ground = 
     blob {
-        #for (i,0,400,1)
-            sphere { <sin(i*0.1)*1000,0,0>, 140, 30 
+        #for (i,0,200,1)
+            sphere { <sin(i*0.1)*1000,0,0>, 300, 30 
               rotate<0,i*19,0>
             }
-        #end            
-        texture { T_Stone5
-           normal { bumps 0.3 scale 0.1 }
-           scale 20 }
-        finish { reflection 0 ambient 0.1 diffuse 0.8 }  
-        
+        #end                       
+        scale <2,1,2>
+        texture { 
+           T_Stone8
+           normal { bumps 0.1 scale 0.1 }
+           scale 20
+           translate <-1000,0,0> }
+        finish { reflection 0 ambient 0 diffuse 0.6 }  
     }
     
 union {
-    object { Ground translate<0,0,500>}
+    object { Ground translate<0,-200,500>}
     object { Guitars }
+    object { Drums }
 }

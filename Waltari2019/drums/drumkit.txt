@@ -1,0 +1,43 @@
+File         : DrumKid.zip
+Size (in K)  : 490K
+Date         : 15 January 1999
+Author       : Gunther Thoenes
+AuthorEmail  : thoenes.unix@tecs.de
+City/Country : Hamburg, Germany
+Textured     : Yes
+Rights       : The included models can be freely used by other Moray users.
+
+Short        : A Jazz-Drumset.
+
+Description
+-----------
+A Drumset motley of different Manufacturers,
+such as: Ludwig, Rogers and Yamaha.
+It are objects many than "Udo" makes with
+Other application, because I still not known
+Such as best with Moray.
+
+About this appertain:
+
+Blech.inc/udo
+Bock.inc/udo
+Buegel.inc/udo
+Draht.inc/udo
+Kralle.inc/udo
+Nase.inc/udo
+PiecksL.inc/udo
+PiecksR.inc/udo
+Pratze.inc/udo
+Schraube.inc/udo
+Screw.inc/udo
+Sdbock.inc/udo
+SockelBD.inc/udo
+SockelHT.inc/udo
+Tighten.inc/udo
+Torsion.inc/udo
+
+groups with the names "TOP - MID - LOW" you can
+change in the height. The groups "slewing" against
+it you can rotate or swivel.
+
+feel free.
