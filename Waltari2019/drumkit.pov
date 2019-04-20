@@ -10242,16 +10242,3 @@
   }
   translate  <7.0, 43.0, -9.25>
 }
-union { // DrumSet
-  object { BassDrum }
-  object { FloorTom }
-  object { ZymbStand }
-  object { HiHat }
-  object { SnareStand }
-  object { Sit }
-  photons {
-    collect off
-  }
-}
-
-

@@ -2,6 +2,7 @@
 //  World definition file.
 
 #include "stones.inc"
+#include "shapes.inc"
 #include "guitar.pov"
 #include "drumkit.pov"
 
@@ -38,12 +39,12 @@ camera {  //  Camera Camera
 
 light_source { 
   <-3000.0, 3000.0, -3000.0>
-  color rgb <1,1,0.5>
+  color rgb <1,0.7,0.7>
 }        
 
 light_source {   // Lumiere
   <0.0, 5000, 0.0>
-  color rgb <0.7,0.7,1>
+  color rgb <0.7,1,1>
 }   
 
 #declare Guitars = union {             
@@ -90,25 +91,30 @@ light_source {   // Lumiere
 }                      
 
 
-#declare Ground = 
-    blob {
-        #for (i,0,200,1)
-            sphere { <sin(i*0.1)*1000,0,0>, 300, 30 
-              rotate<0,i*19,0>
-            }
-        #end                       
-        scale <2,1,2>
+#declare Ground = union {
+        #for (xx,-30,30,1)
+           #for (yy,-30,30,1)
+                object {
+                Round_Box_Merge(<-1,-1,-1>, <1, 1, 1>, 0.3)
+                    rotate <xx*2,xx+yy,yy*3>
+                    scale 0.4
+                   translate <xx,0,yy> }
+           #end        
+        #end
+        scale 60
         texture { 
            T_Stone8
            normal { bumps 0.1 scale 0.1 }
            scale 20
-           translate <-1000,0,0> }
+           translate <-1000,0,0> 
+        }
         finish { reflection 0 ambient 0 diffuse 0.6 }  
-    }
+    }           
+    
     
 union {
-    object { Ground translate<0,-200,500>}
-    object { Guitars }
-    object { Drums }
-    object { HiHats }
+    object { Ground translate<0,-200,1000>}
+    //object { Guitars }
+    //object { Drums }
+    //object { HiHats }
 }
