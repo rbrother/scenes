@@ -48,7 +48,7 @@ sky_sphere {
 }
 
 light_source {   // Lumiere
-  <1000.0, 1000.0, 0.0>
+  <1000.0, 1000.0, -2000.0>
   color rgb <1.000, 0.8, 0.8>
 }
 
@@ -58,9 +58,12 @@ light_source {   // Lumiere
 }
 
 #for (i,0,360,30)
-object { Guitar    
+object { Guitar
+    scale 0.3      
+    translate<0,100,0>
     rotate<0,135,0>
-    translate<0,0,-800>
+    rotate<20,0,0>
+    translate<0,0,-1500>
     rotate<0,0,i>
     }            
 #end
@@ -82,8 +85,11 @@ blob {
           rotate<i*5,0,0>
            }
     #end
+      
+      scale 2.5
+
     texture { T_Stone8 
        normal { bumps 0.3 scale 0.1 }
        scale<50,50,50> }
-      finish { reflection 0.2 ambient 0.1 diffuse 0.8 }
+      finish { reflection 0.2 ambient 0.1 diffuse 0.8 }  
 }
