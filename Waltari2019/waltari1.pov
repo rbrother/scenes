@@ -37,7 +37,7 @@ camera {  //  Camera Camera
 sky_sphere {               
   pigment {
     bumps 
-    scale 0.01
+    
     color_map {
       [ 0.0 color rgb<0,0,0> ]      
       [ 0.8 color rgb<0,0,0> ]
@@ -48,35 +48,33 @@ sky_sphere {
 }
 
 light_source {   // Lumiere
-  <1000.0, 1000.0, -2000.0>
-  color rgb <1.000, 0.8, 0.8>
+  <1000.0, 2000.0, -2000.0>
+  color rgb <0.8, 0.8, 0.8>
 }
 
 light_source {   // Lumiere
-  <-1000.0, 1000, 0.0>
+  <-1000.0, 2000, 0.0>
   color rgb <1.000, 1.000, 0.8>
 }
               
 #declare Guitars = union {             
-    #for (i,0,360,30)
-    object { Guitar
-        scale 0.5      
-        rotate<0,135,0>
-        //translate<0,100,0>
+    #for (i,0,359,30)
+    object { Guitar    
+        scale 0.6  
+        translate<0,-200,0>    
         
-        //rotate<20,0,0>
-        //translate<0,0,-200>
-        //rotate<0,0,i>
+        rotate<0,135,0>
+        
+        rotate<0,0,i*2>       
+                       
+        translate<400,0,0>                       
+                       
+        rotate<0,i,0>
+           
+        translate<0,120,0>   
         }            
     #end
 }       
-
-#declare Guitars = object { Guitar
-        scale 0.6      
-        rotate<0,135,0> 
-        rotate<0,0,20>
-        translate<100,0,-300>
-}      
 
 #declare Ground = 
     blob {
@@ -85,14 +83,14 @@ light_source {   // Lumiere
               rotate<0,i*19,0>
             }
         #end            
-        texture { T_Stone2 
+        texture { T_Stone5
            normal { bumps 0.3 scale 0.1 }
            scale 20 }
-        finish { reflection 0.2 ambient 0.1 diffuse 0.8 }  
+        finish { reflection 0 ambient 0.1 diffuse 0.8 }  
         
     }
     
 union {
     object { Ground translate<0,0,500>}
-    object { Guitars translate <0,100,0> }
+    object { Guitars }
 }
