@@ -45,62 +45,25 @@ light_source {
 light_source {   // Lumiere
   <0.0, 5000, 0.0>
   color rgb <0.7,1,1>
-}   
+}           
 
-#declare Guitars = union {             
-    #for (i,15,359,45)
-        object { Guitar    
-            scale 0.6  
-            translate<0,-200,0>    
-            rotate<0,135,0>
-            rotate<0,0,i*2>       
-            translate<400,0,0>                       
-            rotate<0,i,0>
-            translate<0,120,0>   
-            }            
-    #end
-}                      
+#declare Guit = object { Guitar scale 0.6 }
+                
+#declare HiHa = object { HiHat scale 10 translate<-200,0,-200> rotate<-90,0,0> }                
 
-
-#declare Drums = union {             
-    #for (i,0,359,60)
-        object { BassDrum 
-            rotate<-90,0,0>
-            rotate<0,180,0>  
-            scale 8 
-            rotate<0,i*0.7,i*2>       
-            translate<250,0,0>                       
-            rotate<0,i+20,0>
-            translate <0,70,0>
-            }            
-    #end
-}                      
-
-
-#declare HiHats = union {             
-    #for (i,0,359,60)
-        object { HiHat 
-            rotate<-70,0,0>
-            rotate<0,180,0>  
-            scale 10 
-            translate<450,0,0>                       
-            rotate<0,i+30,0>
-            translate <0,-70,0>
-            }            
-    #end
-}                      
-
+#declare Bass = object { BassDrum scale 10 }                
 
 #declare Ground = union {
-        #for (xx,-30,30,1)
-           #for (yy,-30,30,1)
+        #for (xx,-20,20,1)
+           #for (yy,0,45,1)
                 object {
                 Round_Box_Merge(<-1,-1,-1>, <1, 1, 1>, 0.3)
-                    rotate <xx*2,xx+yy,yy*3>
+                    rotate <xx*2,xx+yy*5,yy*3>
                     scale 0.4
-                   translate <xx,0,yy> }
+                   translate <xx,yy*yy*0.001,yy> }
            #end        
-        #end
+        #end         
+        translate<0,0,-30>
         scale 60
         texture { 
            T_Stone8
@@ -114,7 +77,10 @@ light_source {   // Lumiere
     
 union {
     object { Ground translate<0,100,1000>}
-    object { Guitars }
-    object { Drums }
-    object { HiHats }
+    object { Guit rotate<0,150,0> rotate<0,0,20> translate<-50,50,-100>}
+    object { Guit rotate<0,180,0> rotate<0,0,110> rotate<0,-30,0> translate<450,250,400> }
+    object { Bass rotate<0,0,45> translate<250,50,-300> }
+    object { Bass rotate<0,0,-145> rotate<0,130,0> translate<0,200,500> }
+    object { HiHa rotate<0,30,30> translate<-100,150,-100> }
+    object { HiHa rotate<0,0,30> rotate<0,-120,0> translate<100,200,400> }
 }
