@@ -23,7 +23,18 @@ global_settings {
   charset ascii
 }
 
-background { color <0.000,0.000,0.000> }
+sky_sphere {               
+  pigment {
+    bumps 
+    scale 0.01
+    color_map {
+      [ 0.0 color rgb<0,0,0> ]      
+      [ 0.8 color rgb<0,0,0> ]
+      [ 0.9 color rgb<0.5,0.5,1> ]
+      [ 1.0 color rgb<1,1,1> ]
+    }
+  }
+}
 
 camera {  //  Camera Camera
   location  <   0.000,     600.000,     -700.000>
@@ -53,26 +64,27 @@ light_source {   // Lumiere
 
 #declare Bass = object { BassDrum scale 10 }                
 
-#declare Ground = union {
-        #for (xx,-20,20,1)
-           #for (yy,0,45,1)
-                object {
-                Round_Box_Merge(<-1,-1,-1>, <1, 1, 1>, 0.3)
-                    rotate <xx*2,xx+yy*5,yy*3>
-                    scale 0.4
-                   translate <xx,yy*yy*0.001,yy> }
-           #end        
-        #end         
-        translate<0,0,-30>
-        scale 60
-        texture { 
-           T_Stone8
-           normal { bumps 0.1 scale 0.1 }
-           scale 20
-           translate <-1000,0,0> 
-        }
-        finish { reflection 0 ambient 0 diffuse 0.6 }  
-    }           
+#declare Ground = blob {
+    #for (i,0,200,1)
+        sphere { <380,0,0>, 200, 30 
+          rotate<0,0,i*19>
+          rotate<0,i*13,0>
+          rotate<i*3,0,0>
+           }
+    #end            
+    #for (i,0,600,1)
+        sphere { <460,0,0>, 100, 30 
+          rotate<0,i*19,0>
+          rotate<0,i*13,0>
+          rotate<i*5,0,0>
+           }
+    #end
+    texture { T_Stone8 
+       normal { bumps 0.3 scale 0.1 }
+       scale<50,50,50> }
+      finish { reflection 0.2 ambient 0.1 diffuse 0.8 }
+}
+    
     
     
 union {
