@@ -34,19 +34,13 @@ light_source {
 #declare kuusi_pigment =
 pigment
 {
-        image_map { jpeg "kuusi4.jpg" }        
-        translate <0.5,-0.5,0>
-        scale <4/3,1,1>
-        scale 1
+       color rgb <0,0.7,0>
 }
 
 #declare kynttila_pigment =
 pigment
 {
-        image_map { jpeg "kynttila.jpg" }
-        translate <0.5,-0.5,0>
-        scale <4/3,1,1>
-        scale 2
+        color rgb <1,0,0>
 }
                                  
         
