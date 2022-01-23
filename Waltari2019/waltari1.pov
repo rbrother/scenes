@@ -78,17 +78,18 @@ light_source {   // Lumiere
           rotate<0,i*13,0>
           rotate<i*5,0,0>
            }
-    #end
+    #end       
+    scale 10
     texture { T_Stone8 
        normal { bumps 0.3 scale 0.1 }
        scale<50,50,50> }
-      finish { reflection 0.2 ambient 0.1 diffuse 0.8 }
+      finish { reflection 0.2 ambient 0 diffuse 0.4 }
 }
     
     
     
 union {
-    object { Ground translate<0,100,1000>}
+    object { Ground translate<0,-5200,2000>}
     object { Guit rotate<0,150,0> rotate<0,0,20> translate<-50,50,-100>}
     object { Guit rotate<0,180,0> rotate<0,0,110> rotate<0,-30,0> translate<450,250,400> }
     object { Bass rotate<0,0,45> translate<250,50,-300> }
