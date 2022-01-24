@@ -5,10 +5,10 @@
 global_settings { max_trace_level 10 }
 
 camera {
-  location  < 0, 150, -210 >
+  location  < 0, 130, -180 >
   direction < 0,0,1.4>
   up        < 0.0, 1.0, 0.0>
-  right     < 1.333, 0.0, 0.0>
+  right     x*image_width/image_height
   look_at   < 0, 0, 40>
 }
 

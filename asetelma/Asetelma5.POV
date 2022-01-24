@@ -8,7 +8,7 @@ camera
   location  < 0, 70, -210 >
   direction < 0,0,1.4>
   up        < 0.0, 1.0, 0.0>
-  right     < 1.333, 0.0, 0.0>
+  right     x*image_width/image_height
   look_at   < -15, 20, 0>
 }
 

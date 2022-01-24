@@ -6,11 +6,11 @@ global_settings { max_trace_level 7 }
 
 camera 
 {
-  location  < 0, 70, -210 >
+  location  < 0, 60, -160 >
   direction < 0,0,1.4>
   up        < 0.0, 1.0, 0.0>
-  right     < 1.333, 0.0, 0.0>
-  look_at   < 0, 20, 0>
+  right     x*image_width/image_height
+  look_at   < 0, 30, 0>
 }
 
 light_source 
