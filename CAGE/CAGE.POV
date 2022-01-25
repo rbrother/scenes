@@ -4,18 +4,18 @@
 #include "shapes.inc"
 
 global_settings {
-  max_trace_level 2    // Some speed-up...
+  max_trace_level 3    // Some speed-up...
 }
 
 fog{
   color Black
-  distance 100
+  distance 30
 }
 
 camera {
   location < 3, 2, 5 >
   direction < 0, 0, 1.0 >
-  right < 1.333, 0, 0 >  
+  right     x*image_width/image_height
   up < 0,1,0 >
   rotate z*-25
   look_at < 7, 8, 10 >
@@ -54,6 +54,10 @@ light_source { < 3.1, 2.1, 5.1 > color Gray40 }
   object { pillar translate x*10 }
   object { pillar translate x*20 }
   object { pillar translate x*30 }
+  object { pillar translate x*40 }
+  object { pillar translate x*50 }
+  object { pillar translate x*60 }
+  object { pillar translate x*70 }
 }
 
 #declare Rows = union {
@@ -64,6 +68,9 @@ light_source { < 3.1, 2.1, 5.1 > color Gray40 }
   object { Row translate y*10 }
   object { Row translate y*20 }
   object { Row translate y*30 }
+  object { Row translate y*40 }
+  object { Row translate y*50 }
+  object { Row translate y*60 }
 }
 
 #declare Cage = union {
