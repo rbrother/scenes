@@ -17,7 +17,7 @@ camera
   location  <-0.5, 3.0, -4.0> // position of camera <X Y Z>
   direction 2.0*z            // which way are we looking <X Y Z> & zoom
   up        <0, 1, 0>                // which way is +up <X Y Z>
-  right     <1,0,0>            // Square screen
+  right     x*image_width/image_height
   look_at   <-0.5,0.8,0.25> // point center of view at this point <X Y Z>
 }
 

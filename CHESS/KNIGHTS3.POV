@@ -10,7 +10,7 @@ camera
   location  <4.0, 5.0, -6.0> // position of camera <X Y Z>
   direction 2.0*z            // which way are we looking <X Y Z> & zoom
   up        <0, 1, 0>                // which way is +up <X Y Z>
-  right     4/3*x            // which way is +right <X Y Z> and aspect ratio
+  right     x*image_width/image_height
   look_at   <0.0, 0.0,  0.0> // point center of view at this point <X Y Z>
 }
 
@@ -47,7 +47,7 @@ light_source {
   scale 1.0
 }
 
-#declare WColor = color rgb<0.9,0.8,0.7>
+#declare WColor = color rgb<0.9,0.8,0.7>;
 
 #declare WWood = texture {
    pigment {
@@ -69,7 +69,7 @@ light_source {
    }
 }
 
-#declare RColor = color rgb<0.9,0.2,0>
+#declare RColor = color rgb<0.9,0.2,0>;
 
 #declare RWood = texture {
    pigment {
@@ -108,11 +108,11 @@ light_source {
 
 object { Board }
 
-#declare R1 = seed(1)
-#declare R2 = seed(82)
-#declare xx = 1
+#declare R1 = seed(1);
+#declare R2 = seed(82);
+#declare xx = 1;
 #while (xx<12)
-  #declare yy = 1
+  #declare yy = 1;
   #while (yy<12)
     #if (rand(R2)>0.6)
     object { WPawn
@@ -120,9 +120,9 @@ object { Board }
       translate <(xx-8)+0.5,0,(yy-5)+0.5>
     }
     #end
-  #declare yy = yy + 1
+  #declare yy = yy + 1;
   #end
-#declare xx = xx + 1
+#declare xx = xx + 1;
 #end
 
 object { RKnight translate <0.25,0,0.25> }
