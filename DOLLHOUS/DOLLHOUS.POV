@@ -9,13 +9,22 @@
 #include "shapes.inc"
 #include "robo_gen.inc"
 
+global_settings {
+    assumed_gamma 2.0
+}
+
 // 1 unit = 1 cm
 
 light_source { <0,220,-150> color Gray80 } // Light in the room
 
+#declare mirror = texture {
+    pigment { color rgb <0.5,0.5,0.5> }
+    finish { reflection 0.7}
+}
+
 camera {
   up < 0, 1, 0 >
-  right < 1.333, 0, 0>
+  right     x*image_width/image_height
   direction < 0, 0, 1.9 >
   location < 45, 90, -50 >
   look_at < 5,77,-5 >
@@ -25,17 +34,17 @@ box { < -200,0,-200 > < 200, 250, 200 >   // The room
   texture { T_Stone14 scale 20 }
 }
 
-#declare Head_Rotation = 0   // Horisontal tilt of head. 0 = forward
-#declare Left_Hand_Tilt1 = 30  // Tilt of joint in shoulder
-#declare Left_Hand_Tilt2 = 55  // Tilt of joint in elbow
-#declare Right_Hand_Tilt1 = 35  // Tilt of joint in shoulder
-#declare Right_Hand_Tilt2 = 50  // Tilt of joint in elbow
-#declare Left_Foot_Tilt1 = 90  // Tilt of joint in hip
-#declare Left_Foot_Tilt2 = -70  // Tilt of joint in knee
-#declare Left_Foot_Tilt3 = -20  // Tilt of joint in foot
-#declare Right_Foot_Tilt1 = 85  // Tilt of joint in hip
-#declare Right_Foot_Tilt2 = -65  // Tilt of joint in knee
-#declare Right_Foot_Tilt3 = -20  // Tilt of joint in foot
+#declare Head_Rotation = 0;   // Horisontal tilt of head. 0 = forward
+#declare Left_Hand_Tilt1 = 30;  // Tilt of joint in shoulder
+#declare Left_Hand_Tilt2 = 55;  // Tilt of joint in elbow
+#declare Right_Hand_Tilt1 = 35;  // Tilt of joint in shoulder
+#declare Right_Hand_Tilt2 = 50;  // Tilt of joint in elbow
+#declare Left_Foot_Tilt1 = 90;  // Tilt of joint in hip
+#declare Left_Foot_Tilt2 = -70;  // Tilt of joint in knee
+#declare Left_Foot_Tilt3 = -20;  // Tilt of joint in foot
+#declare Right_Foot_Tilt1 = 85;  // Tilt of joint in hip
+#declare Right_Foot_Tilt2 = -65;  // Tilt of joint in knee
+#declare Right_Foot_Tilt3 = -20;  // Tilt of joint in foot
 #declare Robot_Texture =
 texture {
   pigment { color rgb<1,0,0> }
@@ -46,17 +55,17 @@ texture {
 #include "robot.inc"
 #declare SittingRobot = object { Robot }
 
-#declare Head_Rotation = 0   // Horisontal tilt of head. 0 = forward
-#declare Left_Hand_Tilt1 = 0  // Tilt of joint in shoulder
-#declare Left_Hand_Tilt2 = 0  // Tilt of joint in elbow
-#declare Right_Hand_Tilt1 = 0  // Tilt of joint in shoulder
-#declare Right_Hand_Tilt2 = 0  // Tilt of joint in elbow
-#declare Left_Foot_Tilt1 = 20  // Tilt of joint in hip
-#declare Left_Foot_Tilt2 = -20  // Tilt of joint in knee
-#declare Left_Foot_Tilt3 = -24  // Tilt of joint in foot
-#declare Right_Foot_Tilt1 = 18  // Tilt of joint in hip
-#declare Right_Foot_Tilt2 = -22  // Tilt of joint in knee
-#declare Right_Foot_Tilt3 = -20  // Tilt of joint in foot
+#declare Head_Rotation = 0;   // Horisontal tilt of head. 0 = forward
+#declare Left_Hand_Tilt1 = 0;  // Tilt of joint in shoulder
+#declare Left_Hand_Tilt2 = 0;  // Tilt of joint in elbow
+#declare Right_Hand_Tilt1 = 0;  // Tilt of joint in shoulder
+#declare Right_Hand_Tilt2 = 0;  // Tilt of joint in elbow
+#declare Left_Foot_Tilt1 = 20;  // Tilt of joint in hip
+#declare Left_Foot_Tilt2 = -20;  // Tilt of joint in knee
+#declare Left_Foot_Tilt3 = -24;  // Tilt of joint in foot
+#declare Right_Foot_Tilt1 = 18;  // Tilt of joint in hip
+#declare Right_Foot_Tilt2 = -22;  // Tilt of joint in knee
+#declare Right_Foot_Tilt3 = -20;  // Tilt of joint in foot
 #include "robot.inc"
 #declare Robot2 = object { Robot }
 
@@ -106,8 +115,8 @@ texture {
 }
 
 #declare DollTable = union {
-  box { < -65, 0, -50 > < 65, 4, 50 > translate 50*y  texture { Glass3 } }
-  sphere { <0,79,0>, 25 texture { Glass3 } }
+  box { < -65, 0, -50 > < 65, 4, 50 > translate 50*y  texture { mirror } }
+  sphere { <0,79,0>, 25 texture { mirror } }
   cylinder { < -40, 0, -20 > < -40, 50, -20 >, 6.5 }
   cylinder { < 40, 0, -20 > < 40, 50, -20 >, 6.5 }
   cylinder { < -40, 0, 20 > < -40, 50, 20 >, 6.5 }
@@ -123,7 +132,7 @@ texture {
   scale 0.09
 }
 
-#declare CylWidth1 = 1.0
+#declare CylWidth1 = 1.0;
 
 #declare RedLamp = union {
   light_source { < 0,0,0 > color rgb<1,0.7,0.7> }
@@ -161,7 +170,7 @@ texture {
   object { Plane_XY
     pigment {
       image_map {
-        tga "fract2.tga"
+        png "BALLSKY.png"
         once
       }
       scale <3.2,2.56,1>
@@ -181,7 +190,7 @@ texture {
   Plane_XY
     pigment {
       image_map {
-        tga "matto.tga"
+        png "BALLSKY9.png"
         once
       }
       scale <5,8,1>

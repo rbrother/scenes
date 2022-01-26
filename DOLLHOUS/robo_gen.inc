@@ -79,7 +79,7 @@
     cylinder { < Hand_Width/2-0.2, 4, 0 >, < Hand_Width/2+0.1, 4, 0 >, 0.6 }
   }
 
-#declare Foot_Width = 2
+#declare Foot_Width = 2;
 
 #declare Foot_End = union {
   cylinder { < -Foot_Width/2-0.01, 0, 0 >, < Foot_Width/2+0.01, 0, 0 >, 0.5 }
