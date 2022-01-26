@@ -5,7 +5,7 @@
 camera {
   location <0,2,-40>
   up <0,1,0>
-  right <1.0,0,0>
+  right     x*image_width/image_height
   direction <0,0,1.5>
   look_at <0,10,0>
 }
@@ -13,7 +13,7 @@ camera {
 light_source { <0,2,-50> color rgb<0.7,0.7,1> }
 light_source { <0,20,10> color rgb<1,0.5,0> }
 
-#declare MyStone = texture { Stone13 finish { reflection 0.3 } }
+#declare MyStone = texture { T_Stone13 finish { reflection 0.3 } }
 
 #declare pillar1 =  cylinder { 
   <0,-0.001,0>, <0,1.001,0>, 0.3
@@ -83,12 +83,12 @@ plane { y,0
   texture {
     tiles {
       texture {
-        Stone13
+        T_Stone13
         finish { reflection 0.3 }
       }
     tile2
       texture {
-        Stone14
+        T_Stone14
         finish { reflection 0.3 }
       }
     }

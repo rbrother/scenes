@@ -6,20 +6,10 @@
 camera {
   location <-2,3,-42>
   up <0,1,0>
-  right <1.3333,0,0>
+  right     x*image_width/image_height
   direction <0,0,1.5>
   look_at <5,25,70>
 }
-
-/*
-camera {
-  location <5,12,-42>
-  up <0,1,0>
-  right <1.3333,0,0>
-  direction <0,0,1.5>
-  look_at <0,5,-25>
-}
-*/
 
 light_source { <0,2,-50> color Gray80 }
 light_source { <0,20,10> color rgb<1,0.5,0> }

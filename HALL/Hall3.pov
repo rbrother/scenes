@@ -6,20 +6,10 @@
 camera {
   location <-2,3,-42>
   up <0,1,0>
-  right <1.3333,0,0>
+  right     x*image_width/image_height
   direction <0,0,1.5>
   look_at <5,25,70>
 }
-
-/*
-camera {
-  location <5,12,-42>
-  up <0,1,0>
-  right <1.3333,0,0>
-  direction <0,0,1.5>
-  look_at <0,5,-25>
-}
-*/
 
 light_source { <0,2,-50> color Gray80 }
 light_source { <0,20,10> color rgb<1,0.5,0> }
@@ -175,12 +165,12 @@ texture {
   texture {
     tiles {
       texture {
-        Stone13
+        T_Stone13
         finish { reflection 0.3 }
       }
     tile2
       texture {
-        Stone14
+        T_Stone14
         finish { reflection 0.3 }
       }
     }
@@ -251,7 +241,7 @@ texture {
   object { blobbyeye translate 0.9*x }
   object { blobbyeye translate -0.9*x }
   cylinder { <0,-20.5,8>, <0,15,8>, 0.5 texture { Gold_Metal } }
-  sphere { <0,18,8>,4 texture { Glass }}
+  sphere { <0,18,8>,4 texture { finish { reflection 1.0 } }}
   pigment { 
     onion
     color_map {
@@ -266,7 +256,6 @@ texture {
   finish { diffuse 0.8 ambient 0
     phong 1 phong_size 50 brilliance 30 }
   translate y*20.5
-  bounded_by { box { <-9,0,-4>, <9,45,12> } }
   scale 0.2
 }
 

@@ -5,7 +5,7 @@
 camera {
   location <0,2,-40>
   up <0,1,0>
-  right <1.3333,0,0>
+  right     x*image_width/image_height
   direction <0,0,1.5>
   look_at <0,10,0>
 }
