@@ -10,7 +10,7 @@ camera {
   location < 0, 20, -50 >
   direction < 0, 0, 2 >   // Kameran "linssinpituus"
   up < 0, 1, 0 >
-  right <1.333, 0, 0 >
+  right     x*image_width/image_height
   look_at < 0, 11, 0 >
 }
 
@@ -20,7 +20,7 @@ object {
 
 object {
   plane { < 0, 0, -1 > 0 }       // Takasein„
-  texture { Stone12 scale < 3 3 3 > }
+  texture { T_Grnt12 scale < 3 3 3 > }
   translate < 0, 0, 30 >
   rotate < 0, -25, 0 >
 }
@@ -99,10 +99,10 @@ object {
     object { Stick rotate < 0, 90, 0 > rotate < 225, 0, 0 > }
     object { Stick rotate < 0, 90, 0 > rotate < 315, 0, 0 > }
   }
-  bounded_by {
-    sphere { < 0, 0, 0 > 11.0 }
-  }
   rotate < -20, 20, 0 >
-  texture { Glass }
+  texture {  
+    pigment { color rgbf <1,1,1,1>}
+    finish { reflection 0.2 refraction 0.8 ior 1.3 }  
+  }
   translate < 0 11 0 >
 }
