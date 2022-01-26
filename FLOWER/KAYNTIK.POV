@@ -1,19 +1,25 @@
 // Complex sine-shape
+#version 3.7
 
 #include "colors.inc"
 
-#declare FStr = 4.0
-#declare FRad = 10.0
+#declare FStr = 4.0;
+#declare FRad = 10.0;
 
-#include "helix.inc"
+#include "helix.inc"  
 
-#max_trace_level 5
+// TODO: Refactor to use Povray loop instead of helix.inc
+
+global_settings {
+    assumed_gamma 2.0
+    max_trace_level 5      
+}
 
 camera {
   location < 0, 0, 0 >
   direction < 0, 0, 1.5 >
   up < 0, 1, 0 >
-  right <2, 0, 0 >
+  right     x*image_width/image_height
   look_at < -4, 0, 5 >
 }
 

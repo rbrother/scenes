@@ -1,4 +1,5 @@
 // Complex sine-shape
+#version 3.7
 
 #include "colors.inc"
 
@@ -7,13 +8,16 @@
 
 #include "helix2.inc"
 
-#max_trace_level 5
+global_settings {
+    assumed_gamma 2.0
+    max_trace_level 5      
+}
 
 camera {
   location < 0, 0, 0 >
   direction < 0, 0, 1.5 >
   up < 0, 1, 0 >
-  right <1.333, 0, 0 >
+  right     x*image_width/image_height
   look_at < 0, 0, 5 >
 }
 
