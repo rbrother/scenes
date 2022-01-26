@@ -11,7 +11,7 @@ camera {
   location < 0, 10, -25 >
   direction < 0, 0, 2 >   // Kameran "linssinpituus"
   up < 0, 1, 0 >
-  right <1.333, 0, 0 >
+  right     x*image_width/image_height
   look_at < 0, 9, 0 >
 }
 
