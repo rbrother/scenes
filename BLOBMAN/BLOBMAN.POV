@@ -12,7 +12,7 @@ global_settings {
 
 #declare camera1 = camera { 
   location < 0, 4.5, -12 >
-  right < 3/4, 0, 0 >
+  right     x*image_width/image_height
   up < 0, 1, 0 >
   direction < 0, 0, 1.5 >
   look_at < 0, 3.5, 0 >
@@ -135,16 +135,6 @@ plane { y, 0
     ior 1.8
     phong 1
     phong_size 100
-  }
-  halo {
-    attenuating
-    box_mapping constant
-    colour_map { [ 0 color rgbt <1,0.3,0.1,0.6> ]
-                 [ 1 color rgbt <1,0.3,0.1,0.6> ] }
-    samples 20
-    aa_level 5
-    aa_threshold 0.1
-    jitter 0.8
   }
   hollow
   bounded_by { sphere { < 0, 0, 0 > 1 } }
