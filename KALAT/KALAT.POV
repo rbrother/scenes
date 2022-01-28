@@ -1,6 +1,11 @@
 //-------  "Vedenalainen maailma". Tilausty” Sirpa Kirjalaiselle ----------
 
-#max_trace_level 5
+#version 3.5
+
+global_settings {
+  assumed_gamma 2.0
+  max_trace_level 5
+}
 
 /*
 Koko normaali vaaka 70 x 50 cm. Koko: 3200 x 2285  (aspect 1.4)
@@ -16,7 +21,7 @@ camera {
    location  <-15,-100,-100>  // Ollaan metrin syvyydessa veden alla
    direction <0.0, 0.0, 1.3>
    up  <0.0, 1.0, 0.0>
-   right <1.4, 0.0, 0.0>
+   right     x*image_width/image_height
    look_at < -15,-85, 0>
 }
 
