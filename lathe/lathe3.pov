@@ -11,7 +11,7 @@ global_settings {
 
 camera {
   location <0, 10, -40>
-  right <3/4, 0, 0>
+  right     x*image_width/image_height
   up <0, 1, 0>
   direction <0, 0, 1.8>
   look_at <0, 8, 0>

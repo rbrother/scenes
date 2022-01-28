@@ -1,5 +1,4 @@
 // Testing the new bezier-lathe object of POV-RAY 3.1
-
 global_settings { assumed_gamma 2.2 }
 
 #include "colors.inc"
@@ -7,7 +6,7 @@ global_settings { assumed_gamma 2.2 }
 
 camera {
   location <0, 40, -80>
-  right <4/3, 0, 0>
+  right     x*image_width/image_height
   up <0, 1, 0>
   direction <0, 0, 1.8>
   look_at <0, 10, 0>
@@ -28,19 +27,10 @@ sky_sphere {
 
 light_source { <-80, 40, -20> colour White }
 
-/*
-light_source { 
-  <-80, 40, -20> colour White 
-  area_light
-  <15,0,0>, <0,15,0>,
-  10, 10
-  adaptive 1
- }
-*/
                     
-#declare MyColor = color rgb<1.0,0,0>                   
+#declare MyColor = color rgb<1.0,0,0>;                   
                     
-#declare taso = plane { y, 0 }
+#declare taso = plane { y, 0 };
 
 // rotate a 2-D outline of points around the Y axis to create a 3-D shape
 #declare moykky = lathe {
@@ -55,7 +45,7 @@ union {
   #declare kulma = 0;
   #while (kulma < 359)
     object { moykky translate z*20 rotate y*kulma} 
-    #declare kulma = kulma + 60
+    #declare kulma = kulma + 60;
   #end
   
             
