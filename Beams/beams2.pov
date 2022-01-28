@@ -93,7 +93,7 @@ camera {
 	location  < -3.8,0.5,0 >
 	direction < 0,0,1.4>
 	up        < 0.0, 1.0, 0.0>
-	right     < 1.333, 0.0, 0.0>
+	right     x*image_width/image_height
 	look_at   < 0, 1, 0 >
 	rotate y*30
 }
