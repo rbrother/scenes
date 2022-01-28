@@ -3,18 +3,20 @@
 #include "skies.inc"
 #include "metals.inc"
 
+#version 2.0
+
 // "on the rocks"
 
 // Lisää: kynä? Keltaisesta valosta spottivalo. Rivistö spotteja?
 // hieman hiejastava lasilevy. Vesilasi!
 
 global_settings { max_trace_level 10 }
-
+         
 camera {
    location  < 0, 550, -300 >
    direction < 0,0,1.4>
    up        < 0.0, 1.0, 0.0>
-   right     < 0.75, 0.0, 0.0>
+   right     x*image_width/image_height
    look_at   < 0, 540, 0>
 }
 
@@ -39,18 +41,19 @@ camera {
 
 #declare juoma1 =
   object { lasi_osa
-    pigment { rgbt<1,1,1,1> }
-    halo
-    {
-      attenuating
-      box_mapping constant
-      colour_map { [ 0 color rgbft <0.7,0.6,0.1,0,0.99> ]
-                   [ 1 color rgbft <0.7,0.6,0.1,0,0.99> ] }
-      samples 20
-      aa_level 5
-      aa_threshold 0.1
-      jitter 0.8
-    }
+    pigment { rgbt<1,1,1,1> }   
+    // TODO: replace old halo with povray new *interior*
+    //halo
+    //{
+    //  attenuating
+    //  box_mapping constant
+    //  colour_map { [ 0 color rgbft <0.7,0.6,0.1,0,0.99> ]
+    //               [ 1 color rgbft <0.7,0.6,0.1,0,0.99> ] }
+    //  samples 20
+    //  aa_level 5
+    //  aa_threshold 0.1
+    //  jitter 0.8
+    //}
     finish { reflection 0 refraction 1 ior 1.5 diffuse 0 ambient 0 }
     hollow
     scale <0.799,0.30,0.799> translate 8*y
@@ -59,17 +62,18 @@ camera {
 #declare juoma2 =
   object { lasi_osa
     pigment { rgbt<1,1,1,1> }
-    halo
-    {
-      attenuating
-      box_mapping constant
-      colour_map { [ 0 color rgbft <0.7,0,0.1,0,0.99> ]
-                   [ 1 color rgbft <0.7,0,0.1,0,0.99> ] }
-      samples 20
-      aa_level 5
-      aa_threshold 0.1
-      jitter 0.8
-    }
+    // TODO: replace old halo with povray new *interior*
+    // halo
+    //{
+    //  attenuating
+    //  box_mapping constant
+    //  colour_map { [ 0 color rgbft <0.7,0,0.1,0,0.99> ]
+    //               [ 1 color rgbft <0.7,0,0.1,0,0.99> ] }
+    //  samples 20
+    //  aa_level 5
+    //  aa_threshold 0.1
+    //  jitter 0.8
+    //}
     finish { reflection 0 refraction 1 ior 1.5 diffuse 0 ambient 0 }
     hollow
     scale <0.799,0.30,0.799> translate 8*y
@@ -137,7 +141,7 @@ height_field
   "vuoret.gif"     // the file name to read
   pigment { color White }
   finish { reflection 0.7 diffuse 0.3 }
-  smooth        // make smoother surface
+  //smooth        // make smoother surface
   translate <-0.5,-0.5,-0.5>
   rotate y*90
   scale 10000 scale <12,5,12>
