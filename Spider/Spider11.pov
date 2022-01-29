@@ -2,7 +2,10 @@
 #include "colors.inc"	  // Standard Color definitions
 #include "textures.inc"	  // Standard Texture definitions
 #include "glass.inc"
-
+       
+global_settings {
+  assumed_gamma 2
+}
                     
 sphere
 {	<0,0,0> 1	

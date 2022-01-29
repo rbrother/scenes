@@ -35,30 +35,27 @@ light_source {
 
       
 #declare arm =
-union
-{
-#declare joint = <0,0,0>;
-#declare step = 0;
-#while (step < 10)
-	#declare delta = vnormalize(<1,1,step>);
-  	cylinder {
-    	joint,  
-	    joint + delta,
-	    0.2
-	}      
-	sphere
-	{
-		joint + delta,
-		0.2		
-	}
-	#declare joint = joint + delta;
-	#declare step = step + 1;   // increment our counter
-#end       
-}
+    union {
+        #declare joint = <0,0,0>;
+        #declare step = 0;
+        #while (step < 10)
+        	#declare delta = vnormalize(<1,1,step>);
+          	cylinder {
+            	joint,  
+        	    joint + delta,
+        	    0.2
+        	}      
+        	sphere
+        	{
+        		joint + delta,
+        		0.2		
+        	}
+        	#declare joint = joint + delta;
+        	#declare step = step + 1;   // increment our counter
+        #end       
+    }
  
-      
-union
-{                    
+union {                    
 	#declare xrot = 0;
 	#while (xrot < 360)
 		#declare xrot = xrot + 45;
@@ -68,10 +65,7 @@ union
 			#declare yrot = yrot + 45;		
 		#end
 	#end
-	sphere { <0,0,0> 1	
-}
-
-texture { Gold_Nugget }	
-
+	sphere { <0,0,0> 1	}
+    texture { Gold_Nugget }
 }                       
 

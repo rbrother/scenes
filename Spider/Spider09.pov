@@ -4,6 +4,9 @@
 #include "functions.inc"  // internal functions usable in user defined functions
 #include "skies.inc"
 
+global_settings {
+  assumed_gamma 1.5
+}
                     
 
 // An infinite planar surface
@@ -12,10 +15,8 @@ plane {
   y, 0 // <X Y Z> unit surface normal, vector points "away from surface"
   // pattern for use in texture/pigment/normal/density
   
-  texture
-  {
-	  pigment
-	  {  
+  texture {
+	  pigment {  
 		// create a smooth color gradation map
 		crackle
 		color_map {

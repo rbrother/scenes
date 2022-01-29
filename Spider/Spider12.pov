@@ -2,7 +2,12 @@
 #include "colors.inc"	  // Standard Color definitions
 #include "textures.inc"	  // Standard Texture definitions
 #include "glass.inc"
-
+                 
+global_settings {
+  assumed_gamma 2
+}
+                 
+                 
 #include "..\robo\robo_gen.inc"  
 #declare Head_Rotation = 0;   // Horisontal tilt of head. 0 = forward
 #declare Robot_Rotation = 0;  // Horisontal tilt of robot. 0 = -z

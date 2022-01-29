@@ -4,6 +4,11 @@
 #include "functions.inc"  // internal functions usable in user defined functions
 #include "skies.inc"
 
+global_settings {
+  assumed_gamma 2.2
+}
+
+
 // set a color of the background (sky)
 // Create an infinite sphere around scene and allow any pigment on it
 
@@ -23,7 +28,6 @@ sky_sphere {
 plane {
   y, 0 // <X Y Z> unit surface normal, vector points "away from surface"
   // pattern for use in texture/pigment/normal/density
-  
   texture
   {
 	  pigment
@@ -57,10 +61,9 @@ fog {
 // perspective (default) camera
 camera {
   location  <0.0, 8.0, -35.0>
-  direction z*2
+  direction z*2.5
   look_at   <0.0, 4.0,  0.0>
-  right     x*image_width/image_height
-	  
+  right     x*image_width/image_height	  
 }                 
 
 light_source {
@@ -127,37 +130,21 @@ union
            
 #declare bodyRadius = 3;           
            
-#declare spider =      
-union
-{                    
-		#declare yrot = 0;
-		#while (yrot < 360)
-	 		object { arm  
-	 			rotate z*90
-	 			rotate z * (- 40 )
-	 			translate x*bodyRadius	 	
-	 			rotate y * (yrot + 30)
-	 		}
-	 		#declare yrot = yrot + 30;
-		#end
-
-/*
-		#declare yrot = 0;
-		#while (yrot < 360)
-	 		object { arm 
-	 			rotate z * (0)
-	 			rotate y * yrot
-	 		}
-	 		#declare yrot = yrot + 45;
-		#end
-*/
+#declare spider = union {                    
+	#declare yrot = 0;
+	#while (yrot < 360)
+ 		object { arm  
+ 			rotate z*90
+ 			rotate z * (- 40 )
+ 			translate x*bodyRadius	 	
+ 			rotate y * (yrot + 30)
+ 		}
+ 		#declare yrot = yrot + 15;
+	#end
 	sphere { <0,0,0> 1	
 		scale <bodyRadius, 2, bodyRadius>
 	}
-
 	texture { Gold_Nugget }	   
-		
-
 }                       
 
 object { spider

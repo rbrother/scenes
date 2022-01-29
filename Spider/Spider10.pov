@@ -3,6 +3,9 @@
 #include "textures.inc"	  // Standard Texture definitions
 #include "glass.inc"
 
+global_settings {
+  assumed_gamma 2
+}
                     
 sphere
 {	<0,0,0> 1	
@@ -19,8 +22,6 @@ sphere
 	translate 10000*y
 	hollow
 }
-                    
-                    
          
                     
 // perspective (default) camera
@@ -75,9 +76,7 @@ union
 }     
                
                               
-#declare arm =
-union
-{
+#declare arm = union {
 	#declare joint = <0,0,0>;
 	#declare step = 1;
 	#while (step <= 5)
@@ -101,45 +100,40 @@ union
 
 
 #declare cover = 
-		sphere { <0,0,0> 1	
-			scale <bodyRadius, 1, bodyRadius>		
-		}
+	sphere { <0,0,0> 1	
+		scale <bodyRadius, 1, bodyRadius>		
+	}
 
  
-#declare body =
-union
-{                                  
+#declare body = union {                                  
 	object { cover translate 1.0*y }
 	object { cover rotate x*180 translate -1.0*y }
 	cylinder { <0,-0.7,0>, <0,0.7,0>, bodyRadius-0.5 }
 	texture { Gold_Nugget }	   		
 }
            
-#declare spider =      
-union
-{                    
-		#declare yrot = 0;
-		#while (yrot < 360)
-	 		object { arm  
-	 			rotate z*(-10)
-	 			translate x*bodyRadius	 	
-	 			rotate y * (yrot)
-	 		}
-	 		#declare yrot = yrot + 45;
-		#end
+#declare spider = union {                    
+	#declare yrot = 0;
+	#while (yrot < 360)
+ 		object { arm  
+ 			rotate z*(-10)
+ 			translate x*bodyRadius	 	
+ 			rotate y * (yrot)
+ 		}
+ 		#declare yrot = yrot + 45;
+	#end
 
-		#declare yrot = 0;
-		#while (yrot < 360)
-	 		object { arm  
-	 			rotate z*(-52)	 			
-	 			translate x*bodyRadius	 	
-	 			rotate y * (yrot + 45*0.5)
-	 		}
-	 		#declare yrot = yrot + 45;
-		#end
+	#declare yrot = 0;
+	#while (yrot < 360)
+ 		object { arm  
+ 			rotate z*(-52)	 			
+ 			translate x*bodyRadius	 	
+ 			rotate y * (yrot + 45*0.5)
+ 		}
+ 		#declare yrot = yrot + 45;
+	#end
 
-	object { body }		
-
+	object { body }
 }                       
 
 object { spider

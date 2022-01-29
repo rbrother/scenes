@@ -4,6 +4,11 @@
 #include "functions.inc"  // internal functions usable in user defined functions
 #include "skies.inc"
 
+
+global_settings {
+  assumed_gamma 2.2
+}
+
 // set a color of the background (sky)
 // Create an infinite sphere around scene and allow any pigment on it
 
@@ -80,9 +85,7 @@ light_source {
 #declare armPartLength = 2.5;               
 #declare armDiameter = 0.3;
      
-#declare armPart =
-union
-{
+#declare armPart = union {
 	sphere { <0,0,0> armDiameter * 0.75
 		texture { Tinny_Brass }	
 	}
@@ -91,8 +94,7 @@ union
   		y*0.5, armDiameter
   		texture { Aluminum }
 	}   
-	cylinder
-	{
+	cylinder {
 		y*0.5, 
 		y*(armPartLength - 0.5),
 		armDiameter
@@ -106,9 +108,7 @@ union
 }     
                
                               
-#declare arm =
-union
-{
+#declare arm = union {
 	#declare joint = <0,0,0>;
 	#declare step = 1;
 	#while (step <= 4)
@@ -126,9 +126,7 @@ union
 	rotate z*90
 }
  
-#declare spider =      
-union
-{                    
+#declare spider = union {                    
 	#declare zrot = -20;
 	#while (zrot <= 20)
 		#declare yrot = 0;
@@ -147,10 +145,7 @@ union
 	sphere { <0,0,0> 2	
 		scale <1.5,1,1.5>
 	}
-
-	texture { Gold_Nugget }	   
-		
-
+	texture { Gold_Nugget }
 }                       
 
 object { spider

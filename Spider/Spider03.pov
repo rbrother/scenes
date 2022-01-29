@@ -38,50 +38,44 @@ light_source {
      
      
 #declare armPart =
-union
-{
-	sphere { <0,0,0> 0.2 
-		texture { Gold_Nugget }	
-	}
-	cone {
-  		0,  0.0,
-  		y*0.5, 0.4
-  		texture { Aluminum }
-	}   
-	cylinder
-	{
-		y*0.5, 
-		y*1.5,
-		0.4
-		texture { Soft_Silver }
-	}  
-	cone {
-  		y*1.5, 0.4,
-  		y*2.0, 0
-  		texture { Gold_Nugget }
-	}   	
-}     
+    union {
+    	sphere { <0,0,0> 0.2 
+    		texture { Gold_Nugget }	
+    	}
+    	cone {
+      		0,  0.0,
+      		y*0.5, 0.4
+      		texture { Aluminum }
+    	}   
+    	cylinder {
+    		y*0.5, 
+    		y*1.5,
+    		0.4
+    		texture { Soft_Silver }
+    	}  
+    	cone {
+      		y*1.5, 0.4,
+      		y*2.0, 0
+      		texture { Gold_Nugget }
+    	}   	
+    }     
       
-#declare arm =
-union
-{
-#declare joint = <0,0,0>;
-#declare step = 0;
-#while (step < 10)
-	#declare rotation = <0, step * 5,step * 10>;
-	object { armPart 
-		rotate rotation
-		translate joint
-	}	
-	#declare delta = vrotate(2*y, rotation);
-	#declare joint = joint + delta;
-	#declare step = step + 1;   // increment our counter
-#end       
+#declare arm = union {
+    #declare joint = <0,0,0>;
+    #declare step = 0;
+    #while (step < 10)
+    	#declare rotation = <0, step * 5,step * 10>;
+    	object { armPart 
+    		rotate rotation
+    		translate joint
+    	}	
+    	#declare delta = vrotate(2*y, rotation);
+    	#declare joint = joint + delta;
+    	#declare step = step + 1;   // increment our counter
+    #end       
 }
- 
-      
-union
-{                    
+     
+union {                    
 	#declare xrot = 0;
 	#while (xrot < 360)
 		#declare xrot = xrot + 45;
@@ -91,10 +85,7 @@ union
 			#declare yrot = yrot + 45;		
 		#end
 	#end
-	sphere { <0,0,0> 1	
-}
-
-texture { Gold_Nugget }	
-
+	sphere { <0,0,0> 3}
+    texture { Gold_Nugget }	
 }                       
 

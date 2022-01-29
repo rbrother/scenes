@@ -4,6 +4,10 @@
 #include "functions.inc"  // internal functions usable in user defined functions
 #include "skies.inc"
 
+global_settings {
+  assumed_gamma 2.2
+}
+
 // set a color of the background (sky)
 // Create an infinite sphere around scene and allow any pigment on it
 
@@ -111,9 +115,7 @@ union
 }     
                
                               
-#declare arm =
-union
-{
+#declare arm = union {
 	#declare joint = <0,0,0>;
 	#declare step = 1;
 	#while (step <= 5)
@@ -131,36 +133,32 @@ union
            
 #declare bodyRadius = 3;           
            
-#declare spider =      
-union
-{                    
-		#declare yrot = 0;
-		#while (yrot < 360)
-	 		object { arm  
-	 			rotate z*(-10)
-	 			translate x*bodyRadius	 	
-	 			rotate y * (yrot)
-	 		}
-	 		#declare yrot = yrot + 45;
-		#end
+#declare spider = union {                    
+	#declare yrot = 0;
+	#while (yrot < 360)
+ 		object { arm  
+ 			rotate z*(-10)
+ 			translate x*bodyRadius	 	
+ 			rotate y * (yrot)
+ 		}
+ 		#declare yrot = yrot + 45;
+	#end
 
-		#declare yrot = 0;
-		#while (yrot < 360)
-	 		object { arm  
-	 			rotate z*(-52)	 			
-	 			translate x*bodyRadius	 	
-	 			rotate y * (yrot + 45*0.5)
-	 		}
-	 		#declare yrot = yrot + 45;
-		#end
+	#declare yrot = 0;
+	#while (yrot < 360)
+ 		object { arm  
+ 			rotate z*(-52)	 			
+ 			translate x*bodyRadius	 	
+ 			rotate y * (yrot + 45*0.5)
+ 		}
+ 		#declare yrot = yrot + 45;
+	#end
 
 	sphere { <0,0,0> 1	
 		scale <bodyRadius, 2, bodyRadius>
 	}
 
-	texture { Gold_Nugget }	   
-		
-
+	texture { Gold_Nugget }
 }                       
 
 object { spider
