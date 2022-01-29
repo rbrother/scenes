@@ -2,12 +2,17 @@
 
 */
 
+global_settings {
+  assumed_gamma 2
+}
+
+
 #include "colors.inc"
 #include "textures.inc"
 
 camera {
   location < 0, 10, -20 >
-  right < 1.333, 0, 0 >
+  right     x*image_width/image_height
   up < 0, 1, 0 >
   direction < 0, 0, 1.5 >
   look_at < 0, 10, 0 >
@@ -76,7 +81,6 @@ scale 10000
     texture {
       pigment { color red 0.7 }
       finish { specular 1 roughness 0.02 }
-      metallic
     }
   }
   texture { Gold_Metal }

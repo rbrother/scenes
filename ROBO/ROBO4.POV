@@ -1,7 +1,12 @@
 /*  Robot. POV-object By Robert Brotherus 1994
 
 */
-
+                  
+global_settings {
+  assumed_gamma 2
+}
+                  
+                  
 #include "colors.inc"
 #include "textures.inc"
 #include "robo_gen.inc"  

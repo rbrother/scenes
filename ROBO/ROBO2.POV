@@ -2,24 +2,27 @@
 
 */
 
+global_settings {
+  assumed_gamma 2
+}
+
 #include "colors.inc"
 #include "textures.inc"
 
-#declare Head_Rotation = 0   // Horisontal tilt of head. 0 = forward
-#declare Robot_Rotation = 50  // Horisontal tilt of robot. 0 = -z
-#declare Left_Hand_Tilt1 = -70  // Tilt of joint in shoulder
-#declare Left_Hand_Tilt2 = 60  // Tilt of joint in elbow
-#declare Right_Hand_Tilt1 = 20  // Tilt of joint in shoulder
-#declare Right_Hand_Tilt2 = 20  // Tilt of joint in elbow
-#declare Left_Foot_Tilt1 = 15  // Tilt of joint in hip
-#declare Left_Foot_Tilt2 = -15  // Tilt of joint in knee
-#declare Right_Foot_Tilt1 = -5  // Tilt of joint in hip
-#declare Right_Foot_Tilt2 = -25  // Tilt of joint in knee
-
+#declare Head_Rotation = 0;   // Horisontal tilt of head. 0 = forward
+#declare Robot_Rotation = 50;  // Horisontal tilt of robot. 0 = -z
+#declare Left_Hand_Tilt1 = -70;  // Tilt of joint in shoulder
+#declare Left_Hand_Tilt2 = 60;  // Tilt of joint in elbow
+#declare Right_Hand_Tilt1 = 20;  // Tilt of joint in shoulder
+#declare Right_Hand_Tilt2 = 20;  // Tilt of joint in elbow
+#declare Left_Foot_Tilt1 = 15;  // Tilt of joint in hip
+#declare Left_Foot_Tilt2 = -15;  // Tilt of joint in knee
+#declare Right_Foot_Tilt1 = -5;  // Tilt of joint in hip
+#declare Right_Foot_Tilt2 = -25;  // Tilt of joint in knee
 
 camera {
   location < 0, 20, -40 >
-  right < 1.333, 0, 0 >
+  right     x*image_width/image_height
   up < 0, 1, 0 >
   direction < 0, 0, 1.5 >
   look_at < 0, 10, 0 >
@@ -29,19 +32,19 @@ light_source { < 10, 20, -20 > color Gray80 }
 light_source { < -10, 20, -20 > color Gray80 }
 
 sphere { < 0, 0, 0 >, 1
-texture {
- Blue_Sky
- finish { diffuse 0 ambient 1.0 }
- scale 0.1
-}
-scale 10000
+    texture {
+        Blue_Sky
+        finish { diffuse 0 ambient 1.0 }
+        scale 0.1
+    }
+    scale 10000
 }
 
 plane { y, 0
   texture {
-    checker color red 1 color red 0.8 blue 0.3
+    pigment { checker color rgb<1,0,0> color rgb<1,1,1> }
     finish { ambient 0.4 diffuse 0.8 }
-    scale 3 rotate y*20
+    scale 20 rotate y*20
   }
 }
 
@@ -95,7 +98,7 @@ plane { y, 0
   // Add some more details to the torso? Button panels?
 }
 
-#declare Hand_Width = 1.5
+#declare Hand_Width = 1.5;
 
 #declare Hand_End = union {
   cylinder { < -Hand_Width/2, 0, 0 >, < Hand_Width/2, 0, 0 >, 0.5 }
@@ -138,7 +141,7 @@ plane { y, 0
   translate -4*y
 }
 
-#declare Foot_Width = 2
+#declare Foot_Width = 2;
 
 #declare Foot_End = union {
   cylinder { < -Foot_Width/2, 0, 0 >, < Foot_Width/2, 0, 0 >, 0.5 }

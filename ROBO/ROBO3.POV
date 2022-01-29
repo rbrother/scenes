@@ -2,29 +2,34 @@
 
 */
 
+global_settings {
+  assumed_gamma 2
+}
+
+
 #include "colors.inc"
 #include "textures.inc"
 #include "chess.inc"   // Chessboard with pieces...
 
 #include "robo_gen.inc"
-#declare Head_Rotation = 0   // Horisontal tilt of head. 0 = forward
-#declare Robot_Rotation = 0  // Horisontal tilt of robot. 0 = -z
-#declare Left_Hand_Tilt1 = -40  // Tilt of joint in shoulder
-#declare Left_Hand_Tilt2 = 30  // Tilt of joint in elbow
-#declare Right_Hand_Tilt1 = 15  // Tilt of joint in shoulder
-#declare Right_Hand_Tilt2 = 20  // Tilt of joint in elbow
-#declare Left_Foot_Tilt1 = 15  // Tilt of joint in hip
-#declare Left_Foot_Tilt2 = -20  // Tilt of joint in knee
-#declare Left_Foot_Tilt3 = 0  // Tilt of joint in knee
-#declare Right_Foot_Tilt1 = -15  // Tilt of joint in hip
-#declare Right_Foot_Tilt2 = -25  // Tilt of joint in knee
-#declare Right_Foot_Tilt3 = 15  // Tilt of joint in knee
+#declare Head_Rotation = 0;   // Horisontal tilt of head. 0 = forward
+#declare Robot_Rotation = 0;  // Horisontal tilt of robot. 0 = -z
+#declare Left_Hand_Tilt1 = -40;  // Tilt of joint in shoulder
+#declare Left_Hand_Tilt2 = 30;  // Tilt of joint in elbow
+#declare Right_Hand_Tilt1 = 15;  // Tilt of joint in shoulder
+#declare Right_Hand_Tilt2 = 20;  // Tilt of joint in elbow
+#declare Left_Foot_Tilt1 = 15;  // Tilt of joint in hip
+#declare Left_Foot_Tilt2 = -20;  // Tilt of joint in knee
+#declare Left_Foot_Tilt3 = 0;  // Tilt of joint in knee
+#declare Right_Foot_Tilt1 = -15;  // Tilt of joint in hip
+#declare Right_Foot_Tilt2 = -25;  // Tilt of joint in knee
+#declare Right_Foot_Tilt3 = 15;  // Tilt of joint in knee
 #declare Robot_Texture = texture { pigment { color White }}
 #include "robot.inc"
 
 #declare camera1 = camera {   // Camera for A3 Laser print
   location < -2, 5, -15 >
-  right < 1.333, 0, 0 >
+  right     x*image_width/image_height
   up < 0, 1, 0 >
   direction < 0, 0, 1.52 >
   look_at < -1.2, 3, 0 >
